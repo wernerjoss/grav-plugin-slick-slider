@@ -1,0 +1,16 @@
+{# pass plugin paramters via DOM to slider.js #}
+<div id='imgFilestring' style='display:none;'>{{ imgFiles }}</div>
+<div id='slidesToShow' style='display:none;'>{{ config.plugins.slickslider.slidesToShow }}</div>
+<div id='fade' style='display:none;'>{{ config.plugins.slickslider.fade }}</div>
+<div id='speed' style='display:none;'>{{ config.plugins.slickslider.speed }}</div>
+<div id='autoplaySpeed' style='display:none;'>{{ config.plugins.slickslider.autoplaySpeed }}</div>
+
+{% set images = imgFiles|split(",") %}  {# so gehts :-) #}
+    
+<div class='slider'>
+    {# DONE: loop over imgFiles from Shortcode  #}
+    {% for img in images %}
+        <div><img src="{{img}}"></div>
+    {% endfor %}
+</div>
+

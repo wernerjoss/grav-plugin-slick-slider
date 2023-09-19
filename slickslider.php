@@ -3,6 +3,7 @@ namespace Grav\Plugin;
 
 use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
+use RocketTheme\Toolbox\Event\Event;
 
 /**
  * Class SlicksliderPlugin
@@ -53,7 +54,40 @@ class SlicksliderPlugin extends Plugin
 
         // Enable the main events we are interested in
         $this->enable([
-            // Put your main events here
+            'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+            'onPageInitialized' => ['onPageInitialized', 0]
         ]);
     }
+
+    public function onPageInitialized(Event $event)
+    {
+        /** @var Page */
+        $page = $event['page'];
+
+        $this->addAssets();
+    }
+    
+    private function addAssets()
+    {
+        /** @var Assets */
+        $assets = $this->grav['assets'];
+        $config = $this->config->get('plugins.slickslider');
+        // $assets->addJs('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', ['group' => 'bottom']);   // cdn
+        // $assets->addCss('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+        $assets->addJs('plugins://' . $this->name . '/assets/slick.min.js', ['group' => 'bottom']); // local
+        $assets->addJs('plugins://' . $this->name . '/assets/slider.js', ['group' => 'bottom']);
+        $assets->addCss('plugins://' . $this->name . '/assets/slick.css');
+    }
+
+    public function onTwigTemplatePaths()
+    {
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
+    }
+
+    public function onShortcodeHandlers(Event $e)
+    {
+        $this->grav['shortcode']->registerAllShortcodes(__DIR__ . '/shortcodes');
+    }
+
 }

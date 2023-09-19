@@ -7,15 +7,16 @@ icon: plug
 author:
   name: Werner Joss
   email: werner@hoernerfranzracing.de
-homepage: https://github.com/werner-joss/grav-plugin-slickslider
+homepage: https://github.com/wernerjoss/grav-plugin-slickslider
 demo: http://demo.yoursite.com
 keywords: grav, plugin, etc
-bugs: https://github.com/werner-joss/grav-plugin-slickslider/issues
-docs: https://github.com/werner-joss/grav-plugin-slickslider/blob/develop/README.md
+bugs: https://github.com/wernerjoss/grav-plugin-slickslider/issues
+docs: https://github.com/wernerjoss/grav-plugin-slickslider/blob/develop/README.md
 license: MIT
 
 dependencies:
-  - { name: grav, version: '>=1.6.0' }
+  - { name: grav, version: '>=1.7.0' }
+  - shortcode-core: shortcode-core
 
 form:
   validation: loose
@@ -30,7 +31,33 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    text_var:
-      type: text
-      label: PLUGIN_SLICKSLIDER.TEXT_VARIABLE
-      help: PLUGIN_SLICKSLIDER.TEXT_VARIABLE_HELP
+    slidesToShow:
+      type: number
+      size: small
+      label: No. of Slides to show simultaneously
+      default: 1
+    fade:
+      type: toggle
+      label: Fade
+      help: Slide Change Effect
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    autoplaySpeed:
+      type: number
+      size: small
+      label: Autoplay Speed
+      help: Interval of Slides change in ms
+      default: 4000
+    speed:
+      type: number
+      size: small
+      label: Fading Speed
+      help: Speed of Slides change in ms
+      default: 2000
+    
+    

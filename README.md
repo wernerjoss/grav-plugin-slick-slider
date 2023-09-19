@@ -8,7 +8,7 @@ The **Slickslider** Plugin is an extension for [Grav CMS](https://github.com/get
 
 Installing the Slickslider plugin can be done in one of three ways: The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command, the manual method lets you do so via a zip file, and the admin method lets you do so via the Admin Plugin.
 
-### GPM Installation (Preferred)
+### GPM Installation (currently NOT available)
 
 To install the plugin via the [GPM](https://learn.getgrav.org/cli-console/grav-cli-gpm), through your system's terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
 
