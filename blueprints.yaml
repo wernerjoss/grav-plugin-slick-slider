@@ -8,8 +8,8 @@ author:
   name: Werner Joss
   email: werner@hoernerfranzracing.de
 homepage: https://github.com/wernerjoss/grav-plugin-slickslider
-demo: http://demo.yoursite.com
-keywords: grav, plugin, etc
+demo: https://hoernerfranzracing.de/demo/slickslider
+keywords: grav, plugin, slider, slickslider
 bugs: https://github.com/wernerjoss/grav-plugin-slickslider/issues
 docs: https://github.com/wernerjoss/grav-plugin-slickslider/blob/develop/README.md
 license: MIT
